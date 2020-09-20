@@ -8,6 +8,7 @@ import {
 
 import Home from './containers/Home';
 import Host from './containers/Host';
+import Join from './containers/Join';
 
 import './App.scss';
 
@@ -20,7 +21,7 @@ function App() {
               <Host />
             </Route>
             <Route path="/join">
-              <p>Join</p>
+              <Join />
             </Route>
             <Route path="/">
               <Home />
