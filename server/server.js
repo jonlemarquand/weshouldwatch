@@ -1,7 +1,15 @@
 const express = require('express');
 const cors = require('cors')
 const bodyParser = require('body-parser')
+const redis = require('redis');
 
+const hostRouter = require('./routes/hostRoutes');
+const joinRouter = require('./routes/joinRoutes');
+
+//setup Redis:
+const redisClient = redis.createClient({host: '127.0.0.1'});
+
+//Start Express App
 const app = express();
 
 app.use(bodyParser.json()); // support json encoded bodies
@@ -12,15 +20,7 @@ const corsOptions = {
     origin: 'http://localhost:3000',
 }
 
-app.post('/api/newroom', cors(corsOptions), (req, res, next) => {
-    console.log(req.body);
-    //Receive Data
-    //Format Data
-    //Generate Room Code
-    //Add results to database
-    //Send user to room
-    res.status(200).json(req.body)
-});
+app.post('/api/newroom', hostRouter);
 
 const port = 8000;
 app.listen(port, () => {
