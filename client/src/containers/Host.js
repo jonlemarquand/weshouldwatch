@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { Redirect } from 'react-router-dom';
 
 import './Host.scss';
 
-const Host = () => {
-    const [hostName, setHostName] = useState("");
-    const [medium, setMedium] = useState("tv");
-    const [choiceOptions, setChoiceOptions] = useState("narrow");
-    const [streaming, setStreaming] = useState([])
+const Host = ({ hostName, medium, choiceOptions, streaming, setHostName, setMedium, setChoiceOptions, setStreaming }) => {
+
+    const [roomRedirect, setRoomRedirect] = useState(false);
+    const [roomID, setRoomID] = useState(null);
 
     const handleInputChange = e => {
         if (e.target.name === "hostName") {
@@ -23,26 +23,33 @@ const Host = () => {
                 })
                 setStreaming(newArray)
             }
-            console.log(streaming);
         } else if (e.target.name === "choiceOptions") {
             setChoiceOptions(e.target.value)
         }
     }
 
-    const handleSubmit = e => {
+    async function handleSubmit(e) {
         e.preventDefault();
+        try { 
+            const sendData = axios.post('http://localhost:8000/api/newroom', { hostName, medium, choiceOptions, streaming });
+            const data = await sendData;
+            setRoomID(data.data.roomID);
+        } catch(error) {
+          alert (error);
+        }
+      }
 
-        axios.post('http://localhost:8000/api/newroom', { hostName, medium, choiceOptions, streaming })
-        .then(res => {
-            console.log(res);
-            console.log(res.data);
-          })
-        /*
-        console.log(hostName);
-        console.log(medium);
-        console.log(choiceOptions);
-        console.log(streaming);
-        */
+    useEffect(() => {
+        if (roomID) {
+            setRoomRedirect(true);
+        }
+    }, [roomID])
+
+    const GoToRoom = () => {
+        if(roomRedirect) {
+            return <Redirect to={`/room/${roomID}`} />
+        }
+        return null;
     }
 
     // Name, streaming services, give us ideas or anonymous chosoe / tv/film
@@ -112,6 +119,7 @@ const Host = () => {
                 </div>
                 <input type="submit" value="Start" />
             </form>
+            <GoToRoom />
         </div>
     )
 }
