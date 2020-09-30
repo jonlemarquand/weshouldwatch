@@ -37,7 +37,10 @@ function App() {
               />
             </Route>
             <Route path="/join">
-              <Join />
+              <Join 
+                hostName={hostName}
+                setHostName={setHostName}
+              />
             </Route>
             <Route path="/room/:id">
               <Room hostName={hostName}/>
