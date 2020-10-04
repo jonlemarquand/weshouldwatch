@@ -15,10 +15,11 @@ import './App.scss';
 
 function App() {
 
-  const [hostName, setHostName] = useState("");
-  const [medium, setMedium] = useState("tv");
   const [choiceOptions, setChoiceOptions] = useState("narrow");
-  const [streaming, setStreaming] = useState([])
+  const [medium, setMedium] = useState("tv");
+  const [streaming, setStreaming] = useState([]);
+  const [userName, setUserName] = useState("");
+  const [userState, setUserState] = useState("");
 
   return (
     <div className="App">
@@ -26,11 +27,13 @@ function App() {
         <Switch>
             <Route path="/host">
               <Host 
-                hostName={hostName} 
+                userName={userName}
+                userState={userState} 
                 medium={medium} 
                 choiceOptions={choiceOptions} 
                 streaming={streaming}
-                setHostName={setHostName} 
+                setUserName={setUserName}
+                setUserState={setUserState} 
                 setMedium={setMedium} 
                 setChoiceOptions={setChoiceOptions} 
                 setStreaming={setStreaming}  
@@ -38,12 +41,15 @@ function App() {
             </Route>
             <Route path="/join">
               <Join 
-                hostName={hostName}
-                setHostName={setHostName}
+                userName={userName}
+                setUserName={setUserName}
               />
             </Route>
             <Route path="/room/:id">
-              <Room hostName={hostName}/>
+              <Room 
+                userName={userName}
+                userState={userState} 
+              />
             </Route>
             <Route path="/">
               <Home />

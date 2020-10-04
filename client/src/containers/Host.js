@@ -4,14 +4,14 @@ import { Redirect } from 'react-router-dom';
 
 import './Host.scss';
 
-const Host = ({ hostName, medium, choiceOptions, streaming, setHostName, setMedium, setChoiceOptions, setStreaming }) => {
+const Host = ({ userName, userState, medium, choiceOptions, streaming, setUserName, setUserState, setMedium, setChoiceOptions, setStreaming }) => {
 
     const [roomRedirect, setRoomRedirect] = useState(false);
     const [roomID, setRoomID] = useState(null);
 
     const handleInputChange = e => {
-        if (e.target.name === "hostName") {
-            setHostName(e.target.value)
+        if (e.target.name === "userName") {
+            setUserName(e.target.value)
         } else if (e.target.name === "medium") {
             setMedium(e.target.value)
         } else if (e.target.name === "streaming") {
@@ -31,9 +31,10 @@ const Host = ({ hostName, medium, choiceOptions, streaming, setHostName, setMedi
     async function handleSubmit(e) {
         e.preventDefault();
         try { 
-            const sendData = axios.post('http://localhost:8000/api/newroom', { hostName, medium, choiceOptions, streaming });
+            const sendData = axios.post('http://localhost:8000/api/newroom', { userName, medium, choiceOptions, streaming });
             const data = await sendData;
             setRoomID(data.data.roomID);
+            setUserState("host");
         } catch(error) {
           alert (error);
         }
@@ -58,8 +59,8 @@ const Host = ({ hostName, medium, choiceOptions, streaming, setHostName, setMedi
             <h1>Host</h1>
             <form onSubmit={ handleSubmit }>
                 <div>
-                    <label htmlFor="hostName">Name:</label>
-                    <input type="text" name="hostName" id="hostName" placeholder="Enter name here" onChange={ handleInputChange }/>
+                    <label htmlFor="userName">Name:</label>
+                    <input type="text" name="userName" id="userName" placeholder="Enter name here" onChange={ handleInputChange }/>
                 </div>
                 <div>
                     <p>Series or Film?</p>

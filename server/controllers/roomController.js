@@ -10,7 +10,7 @@ exports.newRoom = (req, res, next) => {
     //Receive Data
     
     console.log(req.body);
-    let hostName = req.body.hostName;
+    let hostName = req.body.userName;
     let medium = req.body.medium;
     let choiceOptions = req.body.choiceOptions;
     let streaming = req.body.streaming;
