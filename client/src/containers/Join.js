@@ -4,15 +4,15 @@ import { Redirect } from 'react-router-dom';
 
 import './Join.scss';
 
-const Join = ({ hostName, setHostName }) => {
+const Join = ({ userName, setUserName, setUserState, setRoomPeople }) => {
 
     const [roomRedirect, setRoomRedirect] = useState(false);
     const [roomID, setRoomID] = useState(null);
     const [roomMatch, setRoomMatch] = useState(false);
 
     const handleInputChange = e => {
-        if (e.target.name === "hostName") {
-            setHostName(e.target.value)
+        if (e.target.name === "userName") {
+            setUserName(e.target.value)
         } else if (e.target.name === "roomCode") {
             setRoomID(e.target.value)
         }
@@ -21,9 +21,14 @@ const Join = ({ hostName, setHostName }) => {
     async function handleSubmit(e) {
         e.preventDefault();
         try { 
-            const sendData = axios.post('http://localhost:8000/api/joinroom', { hostName, roomID });
+            const sendData = axios.post('http://localhost:8000/api/joinroom', { userName, roomID });
             const data = await sendData;
-            console.log(data.data);
+            //console.log(data.data.returnPeople);
+            setRoomPeople(data.data.returnPeople);
+            setUserState("join");
+            if(data.data.returnPeople) {
+                setRoomRedirect(true);
+            }
         } catch(error) {
           alert (error);
         }
@@ -48,8 +53,8 @@ const Join = ({ hostName, setHostName }) => {
             <p>Please enter your name and the room code you're trying to join:</p>
             <form onSubmit={ handleSubmit }>
                 <div>
-                    <label for="hostName">Name:</label>
-                    <input type="text" name="hostName" id="hostName" placeholder="Enter name here" onChange={ handleInputChange } />
+                    <label for="userName">Name:</label>
+                    <input type="text" name="userName" id="userName" placeholder="Enter name here" onChange={ handleInputChange } />
                 </div>
                 <div>
                     <label for="roomCode">Room Code:</label>

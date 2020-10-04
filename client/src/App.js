@@ -20,6 +20,7 @@ function App() {
   const [streaming, setStreaming] = useState([]);
   const [userName, setUserName] = useState("");
   const [userState, setUserState] = useState("");
+  const [roomPeople, setRoomPeople] = useState([]);
 
   return (
     <div className="App">
@@ -43,12 +44,15 @@ function App() {
               <Join 
                 userName={userName}
                 setUserName={setUserName}
+                setUserState={setUserState}
+                setRoomPeople={setRoomPeople}  
               />
             </Route>
             <Route path="/room/:id">
               <Room 
                 userName={userName}
-                userState={userState} 
+                userState={userState}
+                roomPeople={roomPeople}
               />
             </Route>
             <Route path="/">

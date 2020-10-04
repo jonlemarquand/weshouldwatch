@@ -52,7 +52,7 @@ exports.joinRoom = (req, res, next) => {
     // 1. Receive Data
     console.log(req.body);
     let roomID = req.body.roomID;
-    let guestName = req.body.hostName;
+    let guestName = req.body.userName;
 
     // 2. Check if valid
         

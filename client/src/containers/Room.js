@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 
 import './Room.scss';
 
-const Room = ({ userName, userState }) => {
+const Room = ({ userName, userState, roomPeople }) => {
 
     const [roomStatus, setRoomStatus] = useState('lobby');
     let { id } = useParams();
@@ -28,10 +28,9 @@ const Room = ({ userName, userState }) => {
                 <p>{ id }</p>
                 <p>People in Lobby:</p>
                 <ul>
-                    <li>James</li>
-                    <li>Irene</li>
-                    <li>Lester</li>
-                    <li>Moe</li>
+                    {roomPeople.map((person, i) => {
+                        return <li key={1}>{person}</li>
+                    })}
                 </ul>
                 <button>Start</button>
             </div>
