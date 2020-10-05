@@ -4,10 +4,9 @@ import { Redirect } from 'react-router-dom';
 
 import './Join.scss';
 
-const Join = ({ userName, setUserName, setUserState, setRoomPeople }) => {
+const Join = ({ userName, setUserName, setUserState, setRoomPeople, roomID, setRoomID }) => {
 
     const [roomRedirect, setRoomRedirect] = useState(false);
-    const [roomID, setRoomID] = useState(null);
     const [roomMatch, setRoomMatch] = useState(false);
 
     const handleInputChange = e => {

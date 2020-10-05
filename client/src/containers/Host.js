@@ -4,10 +4,9 @@ import { Redirect } from 'react-router-dom';
 
 import './Host.scss';
 
-const Host = ({ userName, userState, medium, choiceOptions, streaming, setUserName, setUserState, setMedium, setChoiceOptions, setStreaming }) => {
+const Host = ({ userName, userState, medium, choiceOptions, streaming, setUserName, setUserState, setMedium, setChoiceOptions, setStreaming, roomID, setRoomID, setRoomPeople }) => {
 
     const [roomRedirect, setRoomRedirect] = useState(false);
-    const [roomID, setRoomID] = useState(null);
 
     const handleInputChange = e => {
         if (e.target.name === "userName") {
@@ -34,6 +33,7 @@ const Host = ({ userName, userState, medium, choiceOptions, streaming, setUserNa
             const sendData = axios.post('http://localhost:8000/api/newroom', { userName, medium, choiceOptions, streaming });
             const data = await sendData;
             setRoomID(data.data.roomID);
+            setRoomPeople(data.data.roomPeople);
             setUserState("host");
         } catch(error) {
           alert (error);

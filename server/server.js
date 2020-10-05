@@ -22,6 +22,7 @@ const corsOptions = {
 
 app.post('/api/newroom', hostRouter);
 app.post('/api/joinroom', hostRouter);
+app.get('/api/refreshuser', hostRouter);
 
 const port = 8000;
 app.listen(port, () => {

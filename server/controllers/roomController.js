@@ -1,9 +1,7 @@
 const asyncRedis = require("async-redis");
-const redisClient = asyncRedis.createClient();
 
-redisClient.on('connect', function() {
-    console.log('redis connected');
-});
+const Lobby = require('../models/lobbyModel');
+const redisClient = require('../models/redisModel');
 
 exports.newRoom = (req, res, next) => {
     
@@ -29,6 +27,7 @@ exports.newRoom = (req, res, next) => {
     
     let respondToClient = {
         "hostName": hostName,
+        "roomPeople": [hostName],
         "roomID": roomCode
     }
    
@@ -72,7 +71,8 @@ exports.joinRoom = (req, res, next) => {
         doesItExist = await asyncCheckRoomID();
         if (!doesItExist) return null;
         await redisClient.rpush(`${roomID}-people`, guestName);
-        const userList = await redisClient.lrange(`${roomID}-people`, 0, -1);
+        const userList = await Lobby.getUserList(`${roomID}-people`, 0, -1);
+
         
         // 4. Return Info
         let returnResponse = {
@@ -83,5 +83,19 @@ exports.joinRoom = (req, res, next) => {
     }
 
     asyncPeopleList();
+
+}
+
+exports.refreshUsers = (req, res, next) => {
+
+    console.log(req.query.roomID);
+    let roomID = req.query.roomID;
+    const asyncCheckUsers = async () => {
+        const userList = await Lobby.getUserList(`${roomID}-people`, 0, -1);
+        console.log(userList);
+        res.status(200).json(userList)
+    }
+
+    asyncCheckUsers();
 
 }
