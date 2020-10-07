@@ -4,7 +4,7 @@ const bodyParser = require('body-parser')
 const redis = require('redis');
 
 const hostRouter = require('./routes/hostRoutes');
-const joinRouter = require('./routes/joinRoutes');
+const programmeRouter = require('./routes/programmeRoutes');
 
 //setup Redis:
 const redisClient = redis.createClient({host: '127.0.0.1'});
@@ -20,9 +20,12 @@ const corsOptions = {
     origin: 'http://localhost:3000',
 }
 
+// Users
 app.post('/api/newroom', hostRouter);
 app.post('/api/joinroom', hostRouter);
 app.get('/api/refreshuser', hostRouter);
+
+app.get('/api/programmes', programmeRouter);
 
 const port = 8000;
 app.listen(port, () => {

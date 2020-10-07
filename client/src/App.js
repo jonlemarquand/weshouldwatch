@@ -19,7 +19,7 @@ function App() {
   const [medium, setMedium] = useState("tv");
   const [streaming, setStreaming] = useState([]);
   const [userName, setUserName] = useState("");
-  const [userState, setUserState] = useState("");
+  const [userState, setUserState] = useState("host");
   const [roomPeople, setRoomPeople] = useState([]);
   const [roomID, setRoomID] = useState(null);
 
