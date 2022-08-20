@@ -1,9 +1,16 @@
 import React from 'react';
-import './App.scss';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+
 import HomeScreen from './containers/HomeScreen';
 
+import './App.scss';
+
 const App = () => {
-  return <HomeScreen />;
+  return (
+    <Router>
+      <Route path="/" element={<HomeScreen />} />
+    </Router>
+  );
 };
 
 export default App;
