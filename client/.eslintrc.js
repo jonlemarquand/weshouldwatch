@@ -18,5 +18,10 @@ module.exports = {
     'react/jsx-filename-extension': 0,
     'import/no-unresolved': 0,
     'import/extensions': 0,
+    'react/function-component-definition': [
+      2,
+      { namedComponents: 'arrow-function' },
+    ],
+    'arrow-body-style': ['error', 'always'],
   },
 };

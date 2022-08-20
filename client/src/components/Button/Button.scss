@@ -1,0 +1,22 @@
+@import '../../styles/index';
+
+.button {
+  width: 180px;
+  height: 60px;
+  background: $purple;
+  color: $white;
+  font-size: 20px;
+  font-family: $primaryFont;
+  border: 0;
+  box-shadow: 0;
+
+  &:hover,
+  &:focus {
+    background: $green;
+    color: $black;
+  }
+
+  &--homescreen {
+    margin-top: 114px;
+  }
+}
