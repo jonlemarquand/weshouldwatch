@@ -1,14 +1,20 @@
 import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-import HomeScreen from './containers/HomeScreen';
+import HostGame from './containers/HostGame/HostGame';
+import HomeScreen from './containers/HomeScreen/HomeScreen';
+import StartGame from './containers/StartGame/StartGame';
 
 import './App.scss';
 
 const App = () => {
   return (
     <Router>
-      <Route path="/" element={<HomeScreen />} />
+      <Routes>
+        <Route path="/" element={<HomeScreen />} />
+        <Route path="/host" element={<HostGame />} />
+        <Route path="/start" element={<StartGame />} />
+      </Routes>
     </Router>
   );
 };
