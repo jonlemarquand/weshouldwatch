@@ -4,6 +4,8 @@ import './Button.scss';
 
 interface ButtonProp {
   buttonText: string;
+  buttonValue: any;
+  buttonAction: Function;
   extraClass?: string;
   useLink: boolean;
   linkAddress?: string;
@@ -11,6 +13,8 @@ interface ButtonProp {
 
 const Button = ({
   buttonText,
+  buttonAction,
+  buttonValue,
   extraClass,
   useLink,
   linkAddress,
@@ -23,7 +27,13 @@ const Button = ({
     );
   }
   return (
-    <button className={`button ${extraClass}`} type="button">
+    <button
+      className={`button ${extraClass}`}
+      type="button"
+      onClick={() => {
+        buttonAction(buttonValue);
+      }}
+    >
       {buttonText}
     </button>
   );
