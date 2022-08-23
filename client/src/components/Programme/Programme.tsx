@@ -34,7 +34,10 @@ const Programme = ({
 
   return (
     <div className="programme" style={styles.img}>
-      <LogoIcon />
+      <div className="programme__header">
+        <p>1/20</p>
+        <LogoIcon />
+      </div>
       <div className="programme__content">
         <h1 className="programme__title">
           {title}{' '}

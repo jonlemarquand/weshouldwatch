@@ -26,7 +26,8 @@ const HostRoom = () => {
         buttonText="Start"
         buttonValue="start"
         buttonAction={TempAction}
-        useLink={false}
+        useLink
+        linkAddress="/programme"
         extraClass="host-room__button"
       />
     </div>

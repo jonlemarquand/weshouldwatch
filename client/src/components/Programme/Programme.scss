@@ -11,6 +11,17 @@
   color: $white;
   font-family: $primaryFont;
 
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
   &__title {
     border-bottom: 2px solid $green;
     margin: 0;
@@ -54,9 +65,7 @@
   }
 
   .logo--icon {
-    position: absolute;
-    right: 15px;
-    top: 15px;
-    width: 50px;
+    height: 30px;
+    width: auto;
   }
 }
