@@ -1,4 +1,6 @@
 import React from 'react';
+import { useSwipeable } from 'react-swipeable';
+
 import LogoIcon from '../Logo/LogoIcon';
 
 import './Programme.scss';
@@ -28,12 +30,21 @@ const Programme = ({
     },
   };
 
+  const handlers = useSwipeable({
+    onSwipedLeft: () => {
+      console.log('Rejected');
+    },
+    onSwipedRight: () => {
+      console.log('Accepted');
+    },
+  });
+
   const mapGenres = genres.map((genre: string) => {
     return <div className="programme__info-item">{genre}</div>;
   });
 
   return (
-    <div className="programme" style={styles.img}>
+    <div className="programme" style={styles.img} {...handlers}>
       <div className="programme__header">
         <p>1/20</p>
         <LogoIcon />

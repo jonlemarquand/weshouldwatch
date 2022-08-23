@@ -24,5 +24,6 @@ module.exports = {
     ],
     'arrow-body-style': ['error', 'always'],
     'react/no-this-in-sfc': 0,
+    'react/jsx-props-no-spreading': 1,
   },
 };
