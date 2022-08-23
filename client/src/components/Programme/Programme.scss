@@ -1,0 +1,62 @@
+@import '../../styles/index';
+
+.programme {
+  background-size: cover;
+  background-position: bottom;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  color: $white;
+  font-family: $primaryFont;
+
+  &__title {
+    border-bottom: 2px solid $green;
+    margin: 0;
+    display: inline-block;
+    font-size: 24px;
+    padding-bottom: 8px;
+
+    &--small {
+      font-size: 14px;
+    }
+  }
+
+  &__content {
+    padding: 24px;
+  }
+
+  &__info {
+    display: flex;
+    grid-gap: 8px;
+    margin-top: 8px;
+  }
+
+  &__info-item {
+    display: flex;
+    align-items: center;
+    text-transform: capitalize;
+    &:not(:first-child) {
+      &::before {
+        margin-right: 8px;
+        content: '';
+        height: 8px;
+        width: 8px;
+        border-radius: 50%;
+        background: $green;
+      }
+    }
+  }
+
+  &__bio {
+    font-size: 14px;
+  }
+
+  .logo--icon {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    width: 50px;
+  }
+}
