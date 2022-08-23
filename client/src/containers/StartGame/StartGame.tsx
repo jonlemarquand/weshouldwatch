@@ -10,16 +10,29 @@ const StartGame = () => {
     setPlayerStatus(value);
   };
 
+  const selectOptions = [
+    {
+      text: 'Join Lobby',
+      value: 'join',
+      get active() {
+        return this.value === playerStatus;
+      },
+    },
+    {
+      text: 'Start a new game',
+      value: 'host',
+      get active() {
+        return this.value === playerStatus;
+      },
+    },
+  ];
+
   return (
     <Layout useLogo>
       <p className="title-text">Join a lobby or start a new one?</p>
       <SelectButtons
-        selectArray={[
-          { text: 'Join Lobby', value: 'join' },
-          { text: 'Start a new game', value: 'host' },
-        ]}
+        selectArray={selectOptions}
         selectValueSetter={selectButtonsSetter}
-        selectValue={playerStatus}
       />
       <Link className="button" to={`/${playerStatus}`}>
         Next

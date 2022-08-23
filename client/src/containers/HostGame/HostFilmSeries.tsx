@@ -16,10 +16,21 @@ const HostFilmSeries = ({ setHostStage, hostValue }: HostFilmSeriesProps) => {
       <p className="title-text">Film or series?</p>
       <SelectButtons
         selectArray={[
-          { text: 'Film', value: 'film' },
-          { text: 'Series', value: 'series' },
+          {
+            text: 'Film',
+            value: 'film',
+            get active() {
+              return programmeType === this.value;
+            },
+          },
+          {
+            text: 'Series',
+            value: 'series',
+            get active() {
+              return programmeType === this.value;
+            },
+          },
         ]}
-        selectValue={programmeType}
         selectValueSetter={setProgrammeType}
       />
       <Button

@@ -23,5 +23,6 @@ module.exports = {
       { namedComponents: 'arrow-function' },
     ],
     'arrow-body-style': ['error', 'always'],
+    'react/no-this-in-sfc': 0,
   },
 };

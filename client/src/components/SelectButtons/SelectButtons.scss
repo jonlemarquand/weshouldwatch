@@ -12,6 +12,16 @@
   flex-direction: column;
   margin-top: 26px;
   margin-bottom: 52px;
+
+  &-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 64px);
+    grid-gap: 10px;
+
+    .select-button {
+      font-size: 14px;
+    }
+  }
 }
 
 .select-button {
