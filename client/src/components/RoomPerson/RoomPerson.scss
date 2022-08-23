@@ -1,0 +1,18 @@
+@import '../../styles/index';
+
+.room-person {
+  display: flex;
+  align-items: center;
+  grid-gap: 8px;
+
+  &__circle {
+    height: 12px;
+    width: 12px;
+    background: $green;
+    border-radius: 50%;
+
+    &--unconfirmed {
+      background: $purple;
+    }
+  }
+}
