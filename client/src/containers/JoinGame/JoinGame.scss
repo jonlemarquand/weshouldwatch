@@ -1,0 +1,72 @@
+@import '../../styles/index';
+
+.join-game {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  flex: 1;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__input {
+    width: 100%;
+    height: 60px;
+    background: $black;
+    border: 1px solid $purple;
+    color: $white;
+    font-size: 40px;
+    font-family: $primaryFont;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-left: 16px;
+    padding-right: 16px;
+    text-transform: uppercase;
+
+    &:hover,
+    &:focus {
+      border: 1px solid $green;
+      outline: 0;
+    }
+  }
+
+  &__input-container {
+    width: 100%;
+    max-width: 240px;
+  }
+
+  &__button {
+    margin-bottom: 64px;
+  }
+
+  &__error {
+    background: $green;
+    color: $black;
+    font-size: 14px;
+    font-family: $primaryFont;
+    width: 100%;
+    padding: 8px;
+    max-width: 240px;
+    margin-top: 24px;
+  }
+}
+
+.join-ready {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  margin: 64px 0;
+
+  &__text {
+    font-size: 48px;
+    text-align: center;
+  }
+}

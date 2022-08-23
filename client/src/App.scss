@@ -1,5 +1,9 @@
 @import './styles/index';
 
+* {
+  box-sizing: border-box;
+}
+
 body,
 #root {
   min-height: 100vh;
