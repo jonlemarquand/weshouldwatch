@@ -1,6 +1,6 @@
 const programmes = [
   {
-    id: 'AB1',
+    id: '1',
     name: 'The Bill',
     release: 1984,
     endDate: 2010,
@@ -10,7 +10,7 @@ const programmes = [
     image: 'police2.jpg',
   },
   {
-    id: 'AB2',
+    id: '2',
     name: 'Friends',
     release: 1994,
     endDate: 2004,
@@ -20,7 +20,7 @@ const programmes = [
     image: 'police.jpg',
   },
   {
-    id: 'AB3',
+    id: '3',
     name: 'House of the Dragon',
     release: 2022,
     endDate: null,
@@ -30,7 +30,7 @@ const programmes = [
     image: 'police.jpg',
   },
   {
-    id: 'AB4',
+    id: '4',
     name: 'Coronation Street',
     release: 1951,
     endDate: null,
@@ -40,7 +40,7 @@ const programmes = [
     image: 'police.jpg',
   },
   {
-    id: 'AB5',
+    id: '5',
     name: 'The Bill',
     release: 1984,
     endDate: 2010,
@@ -50,7 +50,7 @@ const programmes = [
     image: 'police2.jpg',
   },
   {
-    id: 'AB6',
+    id: '6',
     name: 'Friends',
     release: 1994,
     endDate: 2004,
@@ -60,7 +60,7 @@ const programmes = [
     image: 'police.jpg',
   },
   {
-    id: 'AB7',
+    id: '7',
     name: 'House of the Dragon',
     release: 2022,
     endDate: null,
@@ -70,7 +70,7 @@ const programmes = [
     image: 'police.jpg',
   },
   {
-    id: 'AB4',
+    id: '8',
     name: 'Coronation Street',
     release: 1951,
     endDate: null,
@@ -80,7 +80,7 @@ const programmes = [
     image: 'police.jpg',
   },
   {
-    id: 'AB1',
+    id: '9',
     name: 'The Bill',
     release: 1984,
     endDate: 2010,
@@ -90,7 +90,7 @@ const programmes = [
     image: 'police2.jpg',
   },
   {
-    id: 'AB8',
+    id: '10',
     name: 'Friends',
     release: 1994,
     endDate: 2004,
@@ -100,7 +100,7 @@ const programmes = [
     image: 'police.jpg',
   },
   {
-    id: 'AB9',
+    id: '11',
     name: 'House of the Dragon',
     release: 2022,
     endDate: null,
@@ -110,7 +110,7 @@ const programmes = [
     image: 'police.jpg',
   },
   {
-    id: 'AC1',
+    id: '12',
     name: 'Coronation Street',
     release: 1951,
     endDate: null,
@@ -120,7 +120,7 @@ const programmes = [
     image: 'police.jpg',
   },
   {
-    id: 'AC2',
+    id: '13',
     name: 'The Bill',
     release: 1984,
     endDate: 2010,
@@ -130,7 +130,7 @@ const programmes = [
     image: 'police2.jpg',
   },
   {
-    id: 'AC3',
+    id: '14',
     name: 'Friends',
     release: 1994,
     endDate: 2004,
@@ -140,7 +140,7 @@ const programmes = [
     image: 'police.jpg',
   },
   {
-    id: 'AC4',
+    id: '15',
     name: 'House of the Dragon',
     release: 2022,
     endDate: null,
@@ -150,7 +150,7 @@ const programmes = [
     image: 'police.jpg',
   },
   {
-    id: 'AC5',
+    id: '16',
     name: 'Coronation Street',
     release: 1951,
     endDate: null,
@@ -160,7 +160,7 @@ const programmes = [
     image: 'police.jpg',
   },
   {
-    id: 'AC6',
+    id: '17',
     name: 'The Bill',
     release: 1984,
     endDate: 2010,
@@ -170,7 +170,7 @@ const programmes = [
     image: 'police2.jpg',
   },
   {
-    id: 'AC7',
+    id: '18',
     name: 'Friends',
     release: 1994,
     endDate: 2004,
@@ -180,7 +180,7 @@ const programmes = [
     image: 'police.jpg',
   },
   {
-    id: 'AC8',
+    id: '19',
     name: 'House of the Dragon',
     release: 2022,
     endDate: null,
@@ -190,7 +190,7 @@ const programmes = [
     image: 'police.jpg',
   },
   {
-    id: 'AC9',
+    id: '20',
     name: 'Coronation Street',
     release: 1951,
     endDate: null,

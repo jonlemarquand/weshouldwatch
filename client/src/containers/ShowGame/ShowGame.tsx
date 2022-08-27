@@ -10,20 +10,25 @@ const ShowGame = () => {
   const [rejectedProgrammes, setRejectedProgrammes] = useState<string[]>([]);
 
   const show = programmes[programmeNumber - 1];
+  const maxQuestions = 20;
+
+  const updateProgrammeLists = (accepted: boolean) => {
+    if (accepted && programmeNumber <= maxQuestions) {
+      const newList = acceptedProgrammes;
+      newList.push(show.id);
+      setAcceptedProgrammes(newList);
+    } else if (programmeNumber <= maxQuestions) {
+      const newList = rejectedProgrammes;
+      newList.push(show.id);
+      setRejectedProgrammes(newList);
+    }
+  };
 
   const changeProgramme = (accepted: boolean) => {
-    if (programmeNumber < 20) {
-      if (accepted) {
-        setProgrammeNumber(programmeNumber + 1);
-        const newList = acceptedProgrammes;
-        newList.push(show.id);
-        setAcceptedProgrammes(newList);
-      } else {
-        setProgrammeNumber(programmeNumber + 1);
-        const newList = rejectedProgrammes;
-        newList.push(show.id);
-        setRejectedProgrammes(newList);
-      }
+    updateProgrammeLists(accepted);
+
+    if (programmeNumber < maxQuestions) {
+      setProgrammeNumber(programmeNumber + 1);
     } else {
       console.log('Endgame');
       console.log(['Accepted'], acceptedProgrammes);
