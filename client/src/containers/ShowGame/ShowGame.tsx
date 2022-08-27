@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import Programme from '../../components/Programme/Programme';
 
 import programmes from '../../data/programme';
 
 const ShowGame = () => {
+  const navigate = useNavigate();
+
   const [programmeNumber, setProgrammeNumber] = useState(1);
   const [acceptedProgrammes, setAcceptedProgrammes] = useState<string[]>([]);
   const [rejectedProgrammes, setRejectedProgrammes] = useState<string[]>([]);
@@ -33,6 +36,7 @@ const ShowGame = () => {
       console.log('Endgame');
       console.log(['Accepted'], acceptedProgrammes);
       console.log(['Rejected'], rejectedProgrammes);
+      navigate('/results');
     }
   };
 

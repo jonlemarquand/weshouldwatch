@@ -8,6 +8,7 @@ import StartGame from './containers/StartGame/StartGame';
 import ShowGame from './containers/ShowGame/ShowGame';
 
 import './App.scss';
+import ResultsScreen from './containers/ResultsScreen/ResultsScreen';
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
         <Route path="/join" element={<JoinGame />} />
         <Route path="/start" element={<StartGame />} />
         <Route path="/programme" element={<ShowGame />} />
+        <Route path="/results" element={<ResultsScreen />} />
       </Routes>
     </Router>
   );
