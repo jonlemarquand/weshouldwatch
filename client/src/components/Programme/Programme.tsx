@@ -12,7 +12,9 @@ interface ProgrammeProps {
   type: string;
   bio: string;
   release: number;
-  end?: number;
+  end?: number | null;
+  programmeNumber: number;
+  changeProgramme: Function;
 }
 
 const Programme = ({
@@ -23,6 +25,8 @@ const Programme = ({
   bio,
   release,
   end,
+  changeProgramme,
+  programmeNumber,
 }: ProgrammeProps) => {
   const styles: { [key: string]: React.CSSProperties } = {
     img: {
@@ -32,10 +36,10 @@ const Programme = ({
 
   const handlers = useSwipeable({
     onSwipedLeft: () => {
-      console.log('Rejected');
+      changeProgramme(false);
     },
     onSwipedRight: () => {
-      console.log('Accepted');
+      changeProgramme(true);
     },
   });
 
@@ -46,7 +50,7 @@ const Programme = ({
   return (
     <div className="programme" style={styles.img} {...handlers}>
       <div className="programme__header">
-        <p>1/20</p>
+        <p>{programmeNumber}/20</p>
         <LogoIcon />
       </div>
       <div className="programme__content">

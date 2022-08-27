@@ -1,11 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import Programme from '../../components/Programme/Programme';
 
 import programmes from '../../data/programme';
 
 const ShowGame = () => {
-  const show = programmes[0];
+  const [programmeNumber, setProgrammeNumber] = useState(1);
+
+  const show = programmes[programmeNumber - 1];
+
+  const changeProgramme = (accepted: boolean) => {
+    if (programmeNumber < 20) {
+      if (accepted) {
+        setProgrammeNumber(programmeNumber + 1);
+      }
+      setProgrammeNumber(programmeNumber + 1);
+    } else {
+      console.log('Endgame');
+    }
+  };
 
   return (
     <Programme
@@ -16,6 +29,8 @@ const ShowGame = () => {
       type={show.type}
       release={show.release}
       end={show.endDate}
+      changeProgramme={changeProgramme}
+      programmeNumber={programmeNumber}
     />
   );
 };
