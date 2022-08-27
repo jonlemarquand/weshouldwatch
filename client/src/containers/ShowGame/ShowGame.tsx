@@ -6,6 +6,8 @@ import programmes from '../../data/programme';
 
 const ShowGame = () => {
   const [programmeNumber, setProgrammeNumber] = useState(1);
+  const [acceptedProgrammes, setAcceptedProgrammes] = useState<string[]>([]);
+  const [rejectedProgrammes, setRejectedProgrammes] = useState<string[]>([]);
 
   const show = programmes[programmeNumber - 1];
 
@@ -13,10 +15,19 @@ const ShowGame = () => {
     if (programmeNumber < 20) {
       if (accepted) {
         setProgrammeNumber(programmeNumber + 1);
+        const newList = acceptedProgrammes;
+        newList.push(show.id);
+        setAcceptedProgrammes(newList);
+      } else {
+        setProgrammeNumber(programmeNumber + 1);
+        const newList = rejectedProgrammes;
+        newList.push(show.id);
+        setRejectedProgrammes(newList);
       }
-      setProgrammeNumber(programmeNumber + 1);
     } else {
       console.log('Endgame');
+      console.log(['Accepted'], acceptedProgrammes);
+      console.log(['Rejected'], rejectedProgrammes);
     }
   };
 
