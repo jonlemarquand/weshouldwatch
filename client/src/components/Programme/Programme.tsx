@@ -44,7 +44,11 @@ const Programme = ({
   });
 
   const mapGenres = genres.map((genre: string) => {
-    return <div className="programme__info-item">{genre}</div>;
+    return (
+      <div className="programme__info-item" key={genre}>
+        {genre}
+      </div>
+    );
   });
 
   return (
