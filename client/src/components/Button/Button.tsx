@@ -4,8 +4,8 @@ import './Button.scss';
 
 interface ButtonProp {
   buttonText: string;
-  buttonValue: any;
-  buttonAction: Function;
+  buttonValue?: any;
+  buttonAction?: Function | null;
   extraClass?: string;
   useLink: boolean;
   linkAddress?: string;
@@ -31,7 +31,9 @@ const Button = ({
       className={`button ${extraClass}`}
       type="button"
       onClick={() => {
-        buttonAction(buttonValue);
+        if (buttonAction) {
+          buttonAction(buttonValue);
+        }
       }}
     >
       {buttonText}
@@ -42,6 +44,8 @@ const Button = ({
 Button.defaultProps = {
   extraClass: '',
   linkAddress: '/',
+  buttonAction: null,
+  buttonValue: null,
 };
 
 export default Button;

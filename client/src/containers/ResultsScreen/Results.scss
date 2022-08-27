@@ -1,3 +1,5 @@
+@import '../../styles/index';
+
 .results {
   &__header {
     font-size: 48px;
@@ -26,5 +28,21 @@
     font-size: 48px;
     text-align: center;
     font-weight: 400;
+    border-bottom: 2px solid $green;
+  }
+}
+
+.results-all {
+  text-align: center;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  width: 100%;
+
+  .title-text {
+    max-width: 100%;
   }
 }
