@@ -1,14 +1,19 @@
-module.exports = class Product() {
-	constructor(t) {
-		this.title = t;
+class Room {
+	constructor(type, person) {
+		this.type = type;
+		this.people = [person];
 	}
 
-	save() {
-		products.push(this);
+	generateRoomCode() {
+		const length = 6;
+		let result = "";
+		const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+		const charactersLength = characters.length;
+		for (var i = 0; i < length; i++) {
+			result += characters.charAt(Math.floor(Math.random() * charactersLength));
+		}
+		this.code = result;
 	}
-
-	static	fetchAll() {
-		return this.products;	
-	}
-
 }
+
+module.exports = Room;
