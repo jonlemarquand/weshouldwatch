@@ -6,15 +6,21 @@ import './Host.scss';
 interface HostRoomNameProps {
   setHostStage: Function;
   hostValue: number;
+  setHostName: Function;
+  hostName: string | undefined;
 }
 
-const hostRoomName = ({ setHostStage, hostValue }: HostRoomNameProps) => {
-  const [roomName, setRoomName] = useState('');
+const hostRoomName = ({
+  setHostStage,
+  hostValue,
+  hostName,
+  setHostName,
+}: HostRoomNameProps) => {
   const [showErrorMessage, setShowErrorMessage] = useState(false);
 
   const testAction = () => {
     setShowErrorMessage(false);
-    if (!roomName) {
+    if (!hostName) {
       setShowErrorMessage(true);
     } else {
       setHostStage(hostValue);
@@ -22,7 +28,7 @@ const hostRoomName = ({ setHostStage, hostValue }: HostRoomNameProps) => {
   };
 
   const updateRoomName = (e: ChangeEvent<HTMLInputElement>) => {
-    setRoomName(e.target.value);
+    setHostName(e.target.value);
   };
 
   return (
@@ -33,7 +39,7 @@ const hostRoomName = ({ setHostStage, hostValue }: HostRoomNameProps) => {
           <input
             type="text"
             className="host-game__input"
-            value={roomName}
+            value={hostName}
             onChange={updateRoomName}
           />
         </div>

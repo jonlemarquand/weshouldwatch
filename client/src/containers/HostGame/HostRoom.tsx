@@ -4,7 +4,16 @@ import RoomPerson from '../../components/RoomPerson/RoomPerson';
 
 import './Host.scss';
 
-const HostRoom = () => {
+type HostObject = {
+  code: string;
+  people: Array<string>;
+  type: string;
+};
+interface HostRoomProps {
+  roomInfo: HostObject;
+}
+
+const HostRoom = ({ roomInfo }: HostRoomProps) => {
   const TempAction = (value: string) => {
     console.log(value);
   };
@@ -13,7 +22,7 @@ const HostRoom = () => {
     <div className="host-room">
       <div className="host-room__content">
         <p className="host-room__title">Room Code</p>
-        <p className="host-room__code">245365</p>
+        <p className="host-room__code">{roomInfo.code}</p>
         <p className="host-room__left-text">In the room:</p>
         <div className="host-room__grid">
           <RoomPerson />

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import Button from '../../components/Button/Button';
 import SelectButtons from '../../components/SelectButtons/SelectButtons';
@@ -6,11 +6,16 @@ import SelectButtons from '../../components/SelectButtons/SelectButtons';
 interface HostFilmSeriesProps {
   setHostStage: Function;
   hostValue: number;
+  setHostType: Function;
+  hostType: string | undefined;
 }
 
-const HostFilmSeries = ({ setHostStage, hostValue }: HostFilmSeriesProps) => {
-  const [programmeType, setProgrammeType] = useState('film');
-
+const HostFilmSeries = ({
+  setHostStage,
+  hostValue,
+  setHostType,
+  hostType,
+}: HostFilmSeriesProps) => {
   return (
     <>
       <p className="title-text">Film or series?</p>
@@ -20,18 +25,18 @@ const HostFilmSeries = ({ setHostStage, hostValue }: HostFilmSeriesProps) => {
             text: 'Film',
             value: 'film',
             get active() {
-              return programmeType === this.value;
+              return hostType === this.value;
             },
           },
           {
             text: 'Series',
             value: 'series',
             get active() {
-              return programmeType === this.value;
+              return hostType === this.value;
             },
           },
         ]}
-        selectValueSetter={setProgrammeType}
+        selectValueSetter={setHostType}
       />
       <Button
         buttonText="Next"
